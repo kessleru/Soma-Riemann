@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado - Soma de Riemann 3D</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .result-box {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            border: none;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">📊 Resultado da Soma de Riemann</h1>
+        
+        <div class="result-box">
+            <h3>Função: f(x,y) = {{ function }}</h3>
+            <h2>Soma de Riemann = {{ "%.6f"|format(soma) }}</h2>
+        </div>
+        
+        <div class="graph-container">
+            {{ graph_html|safe }}
+        </div>
+          <div class="text-center mt-4">
+            <a href="/?function={{ function|urlencode }}&x1={{ x1 }}&x2={{ x2 }}&y1={{ y1 }}&y2={{ y2 }}&m={{ m }}&n={{ n }}" class="btn btn-secondary btn-lg">🔙 Voltar</a>
+        </div>
+          <div class="mt-4">
+            <h5>📝 Explicação:</h5>
+            <p>A <strong>superfície colorida</strong> representa a função contínua f(x,y) com escala de cores Viridis.</p>
+            <p>Os <strong>pontos vermelhos destacados</strong> representam os pontos médios dos retângulos usados na aproximação de Riemann.</p>
+            <p>Passe o mouse sobre os pontos para ver os valores exatos de coordenadas e da função.</p>
+            <p>A soma de Riemann é a aproximação numérica da integral dupla da função sobre a região especificada.</p>
+            <p><em>💡 Dica: Use o mouse para rotacionar, zoom e explorar o gráfico 3D!</em></p>
+        </div>
+    </div>
+</body>
+</html>
